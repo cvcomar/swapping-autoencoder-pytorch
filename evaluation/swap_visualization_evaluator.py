@@ -49,11 +49,11 @@ class SwapVisualizationEvaluator(BaseEvaluator):
         
         def put_img(img, canvas, row, col):
             h, w = img.shape[0], img.shape[1]
-            start_x = int(self.opt.load_size * col + (self.opt.load_size - w) * 0.5)
-            start_y = int(self.opt.load_size * row + (self.opt.load_size - h) * 0.5)
+            start_x = int(self.opt.crop_size * col + (self.opt.crop_size - w) * 0.5)
+            start_y = int(self.opt.crop_size * row + (self.opt.crop_size - h) * 0.5)
             canvas[start_y:start_y + h, start_x: start_x + w] = img
-        grid_w = self.opt.load_size * (gl.size(0) + 1)
-        grid_h = self.opt.load_size * (gl.size(0) + 1)
+        grid_w = self.opt.crop_size * (gl.size(0) + 1)
+        grid_h = self.opt.crop_size * (gl.size(0) + 1)
         grid_img = np.ones((grid_h, grid_w, 3), dtype=np.uint8)
         #images_np = util.tensor2im(images, tile=False)
         for i, image in enumerate(images):

@@ -1,3 +1,7 @@
+checkpoints/*
+datasets/*
+
+
 # result files
 *.png
 *.txt

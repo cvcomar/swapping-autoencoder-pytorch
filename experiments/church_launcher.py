@@ -5,14 +5,15 @@ class Launcher(TmuxLauncher):
     def options(self):
         opt = Options()
         opt.set(
-            dataroot="~/datasets/lsun/church_outdoor_train_lmdb",
+            dataroot="./datasets/lsun/church_outdoor_train_lmdb",
             dataset_mode="lmdb",
-            num_gpus=4, batch_size=16,
+            num_gpus=1, batch_size=8,
             # scale the image such that the short side is |load_size|, and
             # crop a square window of |crop_size|.
             preprocess="scale_shortside_and_crop",
             load_size=256, crop_size=256,
-            display_freq=1600, print_freq=480,
+            display_freq=20, print_freq=20,
+            # display_freq=1600, print_freq=480,
         ),
 
         return [
@@ -27,7 +28,7 @@ class Launcher(TmuxLauncher):
         return [opt.specify(
             continue_train=True,
             evaluation_metrics="swap_visualization",
-            evaluation_freq=50000,
+            evaluation_freq=40,
         ) for opt in common_options]
 
     def test_options_fid(self):

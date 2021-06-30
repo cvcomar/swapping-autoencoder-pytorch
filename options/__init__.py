@@ -32,7 +32,7 @@ class BaseOptions():
         # input/output sizes
         parser.add_argument('--batch_size', type=int, default=1, help='input batch size')
         parser.add_argument('--preprocess', type=str, default='scale_width_and_crop', help='scaling and cropping of images at load time.')
-        parser.add_argument('--load_size', type=int, default=256, help='Scale images to this size. The final image will be cropped to --crop_size.')
+        parser.add_argument('--load_size', default=256, help='Scale images to this size. The final image will be cropped to --crop_size.')
         parser.add_argument('--crop_size', type=int, default=256, help='Crop to the width of crop_size (after initially scaling the images to load_size.)')
         parser.add_argument('--preprocess_crop_padding', type=int, default=None, help='padding parameter of transforms.RandomCrop(). It is not used if --preprocess does not contain crop option.')
         parser.add_argument('--no_flip', action='store_true')
