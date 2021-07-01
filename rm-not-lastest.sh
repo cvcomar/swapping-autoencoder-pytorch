@@ -1,6 +1,6 @@
 #!/bin/bash
 
-for d in ./checkpoints/*; do
+for d in /root/workspace/swapping-autoencoder-pytorch/checkpoints/*; do
 
     echo \# Inspect directory: $d
 

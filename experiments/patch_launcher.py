@@ -7,14 +7,13 @@ class Launcher(TmuxLauncher):
         opt.set(
             dataroot="./datasets/sr",
             dataset_mode="imagefolder",
-            num_gpus=1, batch_size=8,
+            num_gpus=4, batch_size=16,
             # scale the image such that the short side is |load_size|, and
             # crop a square window of |crop_size|.
             preprocess="crop",
             load_size=None, crop_size=256,
-            display_freq=1000, print_freq=50,
-            save_freq=5000,
-            # save_freq=400,
+            display_freq=4000, print_freq=200,
+            save_freq=20000,
         ),
 
         return [
@@ -22,6 +21,7 @@ class Launcher(TmuxLauncher):
                 name="patch_default",
                 patch_use_aggregation=False,
                 patch_size=128,
+                spatial_code_ch=128,
             ),
         ]
 
@@ -30,5 +30,5 @@ class Launcher(TmuxLauncher):
         return [opt.specify(
             continue_train=True,
             evaluation_metrics="swap_visualization",
-            evaluation_freq=1000,
+            evaluation_freq=20000,
         ) for opt in common_options]
